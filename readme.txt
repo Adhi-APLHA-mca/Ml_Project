@@ -25,9 +25,19 @@ phases:
 
         src/utils (for utility management)
 
+
 3. coding part 1 - 
     src/exception.py
         setting custom exception using sys
 
     src/logging.py
         setting logging for all file
+
+
+4. performing to understand data
+    4a. performing EDA to understand data
+    4b. creating the model training in notebook
+
+
+5. creating a moduler code version
+    5a. dataingestion.py creating a dataingestion pipeline
