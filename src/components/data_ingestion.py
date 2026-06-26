@@ -34,7 +34,7 @@ class DataIngestion:
             train_set,test_set = train_test_split(df,test_size=0.25,random_state=42)
 
             train_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
-            test_set.to_csv(self.ingestion_config.train_data_path,index=False,header=True)
+            test_set.to_csv(self.ingestion_config.test_data_path,index=False,header=True)
             logging.info('data ingestion completed for train and test data"')
 
             return(
@@ -43,7 +43,13 @@ class DataIngestion:
             )
         except Exception as e:
             raise custom_exception(e,sys)
-        
-if __name__ == "__main__":
-    obj = DataIngestion()
-    obj.start_data_ingestion()
+
+if __name__=="__main__":
+    from src.components.data_transformation import DataTransformation
+    
+    obj=DataIngestion()
+    train_data,test_data=obj.start_data_ingestion()
+
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+
