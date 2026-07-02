@@ -9,6 +9,8 @@ from sklearn.model_selection import train_test_split
 from src.exception import custom_exception
 from src.logger import logging
 from dataclasses import dataclass
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import model_trainer_config
 
 #creating a data ingestion class
 @dataclass
@@ -52,4 +54,7 @@ if __name__=="__main__":
 
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+
+    model_trainer = ModelTrainer()
+    model_trainer.start_model_training(train_arr,test_arr)
 
