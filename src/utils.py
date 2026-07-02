@@ -17,7 +17,7 @@ def save_objects(file_path,obj):
         with open(file_path,'wb') as file_obj:
             pkl.dump(obj,file_obj)
 
-        logging.info(f'pickle file has been saved at {dir}')
+        logging.info(f'pickle file has been saved at {file_path}')
     
     except Exception as e:
         raise custom_exception(e,sys)
